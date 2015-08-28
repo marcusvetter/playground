@@ -1,0 +1,12 @@
+{
+  "name": "angular2-people-app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.html",
+  "author": "MV",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-tsc": "^1.1.1"
+  }
+}

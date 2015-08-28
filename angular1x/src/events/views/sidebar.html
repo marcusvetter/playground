@@ -1,0 +1,39 @@
+<h4>Sidebar:</h4>
+
+<div>
+    Limit to: <input type="number" ng-model="settings.limit">
+</div>
+
+<div>
+    Order by:
+    <select ng-model="settings.orderProp">
+        <option>firstName</option>
+        <option>lastName</option>
+        <option>salary</option>
+    </select>
+</div>
+
+<div>
+    <form name="form" novalidate>
+        <input ng-class="{'red': form.$submitted && form.mail.$error.required }" type="email" name="mail" ng-model="user.email" required/>
+        <span ng-show="form.$submitted">
+            <span ng-show="form.mail.$error.required">Enter your email address!</span>
+            <span ng-show="form.mail.$error.email">Your email address is not valid.</span>
+        </span>
+        {{ user.email }}
+        <input type="submit" ng-click="submit()"/>
+    </form>
+</div>
+
+
+<!--<div>-->
+<!--<form name="form" novalidate>-->
+<!--<input type="email" name="mail" ng-model="user.email" ng-class="{'red': form.$submitted && (form.mail.$error.required || form.mail.$error.email)}" required/>-->
+<!--<input type="submit" ng-click="submit(form)" value="Save" />-->
+<!--<div ng-show="form.$submitted">-->
+<!--<span ng-show="form.mail.$error.required">Tell us your email.</span>-->
+<!--<span ng-show="form.mail.$error.email">This is not a valid email.</span>-->
+<!--</div>-->
+<!--</form>-->
+<!--{{ user.email }}-->
+<!--</div>-->

@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<script src="../lib/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-init="name=''; age=''; gender='Mr.'">
+			<p>
+				Name: <input type="text" ng-model="name">	
+			</p>
+			<p>
+				Age: <input type="number" ng-model="age">
+			</p>
+			<p>
+				Gender:
+				<select ng-model="gender">
+					<option>Mr.</option>
+					<option>Mrs.</option>
+				</select>
+			</p>
+			<p>
+				{{ gender }} {{ name }} is {{ age }} years old.
+			</p>
+		</div>
+	</body>
+</html>

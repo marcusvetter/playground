@@ -1,0 +1,21 @@
+{
+  "name": "angular2",
+  "version": "0.0.0",
+  "authors": [
+    "Marcus Vetter <marcus.vetter@live.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-new-router": "~0.5.3",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "traceur-runtime": "~0.0.91"
+  }
+}

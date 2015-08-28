@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Increase</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ng-for="#p of people">
+            <td>{{ p.name }}</td>
+            <td>{{ p.salary }}</td>
+            <td>
+                <input type="number" #salary />
+                <button class="btn" (click)="increaseSalary(p, salary.value)" [disabled]="isMaxSalaryReached(p)">Increase</button>
+                <span *ng-if=" isMaxSalaryReached(p) ">Max. reached</span>
+            </td>
+            <td>
+                <button class="btn" (click)="goToDetails(p)">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

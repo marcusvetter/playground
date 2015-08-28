@@ -1,0 +1,61 @@
+<!doctype html>
+<html ng-app="peopleModule">
+	<head>
+		<script src="../lib/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="peopleController">
+			<table>
+				<tr>
+					<th>firstName</th>
+					<th>lastName</th>
+					<th>salary</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="p in people | limitTo:limit | orderBy:orderProp">
+					<td>{{ p.firstName }}</td>
+					<td>{{ p.lastName }}</td>
+					<td>{{ p.salary }}</td>
+					<td><button ng-click="increaseSalary(p)" ng-disabled="p.salary >= maxSalary">Increase salary</button></td>
+					<td><span ng-show="p.salary < maxSalary">Salary rice possible!</span><span ng-show="p.salary >= maxSalary">Max salary reached!</span></td>
+				</tr>
+			</table>
+			
+			<div>
+				Limit to: <input type="number" ng-model="limit">
+			</div>
+			
+			<div>
+				Order by:
+				<select ng-model="orderProp">
+					<option>firstName</option>
+					<option>lastName</option>
+					<option>salary</option>
+				</select>
+			</div>		
+		</div>
+		
+		<script>
+			var peopleModule = angular.module("peopleModule", []);
+			
+			peopleModule.controller("peopleController", ['$scope', function($scope) {
+				$scope.people = [
+					{ firstName: 'Michael', lastName: 'Mayer', salary: 3000	}, 
+					{ firstName: 'Christian', lastName: 'Mueller', salary: 4000 }, 
+					{ firstName: 'Florian', lastName: 'Schmidt', salary: 6000 }
+				];
+
+				$scope.limit = 10;
+				$scope.orderProp = 'firstName';
+				$scope.maxSalary = 7000;
+				
+				$scope.increaseSalary = function(person) {
+					person.salary = person.salary + 100;
+				};
+			}]);
+		
+		</script>
+		
+	</body>
+</html>

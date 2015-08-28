@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="peopleModule">
+	<head>
+		<script src="../lib/angular.js"></script>
+		<script src="../lib/angular-mocks.js"></script>
+		<script src="../lib/angular-route.js"></script>
+		<script src="modules.js"></script>
+		<script src="config.js"></script>
+		<script src="backendmock.js"></script>
+		<script src="services/peopleService.js"></script>
+		<script src="controllers/peopleController.js"></script>
+		<script src="controllers/peopleDetailsController.js"></script>
+		<script src="controllers/sidebarController.js"></script>
+		<style type="text/css">
+			.red {
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div ng-view></div>
+	</body>
+</html>
