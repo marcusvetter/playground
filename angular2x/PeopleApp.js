@@ -11,27 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var people_store_1 = require('people-store');
+var router_1 = require('angular2/router');
+//import {PeopleList} from './PeopleList';
 var PeopleList = (function () {
     function PeopleList() {
-        var peopleStore = new people_store_1.PeopleStore();
-        this.people = peopleStore.getPeople();
     }
-    PeopleList.prototype.increaseSalary = function (person, change) {
-        person.salary = person.salary + (+change);
-    };
-    PeopleList.prototype.isMaxSalaryReached = function (p) {
-        return p.salary > 6000;
-    };
     PeopleList = __decorate([
         angular2_1.Component({
             selector: 'people-list'
         }),
         angular2_1.View({
-            templateUrl: 'views/people-list.html',
-            directives: [angular2_1.NgFor, angular2_1.NgIf]
+            template: '<div>CONTENT</div>'
         }), 
         __metadata('design:paramtypes', [])
     ], PeopleList);
     return PeopleList;
 })();
+var PeopleApp = (function () {
+    function PeopleApp() {
+    }
+    PeopleApp = __decorate([
+        angular2_1.Component({
+            selector: 'people-app'
+        }),
+        angular2_1.View({
+            templateUrl: 'views/people-app.html',
+            directives: [router_1.RouterOutlet]
+        }),
+        router_1.RouteConfig([
+            { path: '/', component: PeopleList }
+        ]), 
+        __metadata('design:paramtypes', [])
+    ], PeopleApp);
+    return PeopleApp;
+})();
+angular2_1.bootstrap(PeopleApp, [router_1.routerInjectables]);

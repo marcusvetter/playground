@@ -11,25 +11,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var router_1 = require('angular2/router');
-var people_list_1 = require('./people-list');
-var PeopleApp = (function () {
-    function PeopleApp() {
+//import {Person, PeopleStore} from 'people-store';
+var PeopleList = (function () {
+    function PeopleList() {
     }
-    PeopleApp = __decorate([
+    PeopleList = __decorate([
         angular2_1.Component({
-            selector: 'people-app'
+            selector: 'people-list'
         }),
         angular2_1.View({
-            templateUrl: 'views/people-app.html',
-            directives: [router_1.RouterOutlet]
-        }),
-        router_1.RouteConfig([
-            { path: '/', redirectTo: '/list' },
-            { path: '/list', component: people_list_1.PeopleList }
-        ]), 
+            template: '<div>CONTENT</div>'
+        }), 
         __metadata('design:paramtypes', [])
-    ], PeopleApp);
-    return PeopleApp;
+    ], PeopleList);
+    return PeopleList;
 })();
-angular2_1.bootstrap(PeopleApp, []);
+/*
+@Component({
+      selector: 'people-list'
+})
+@View({
+    template: '<div>CONTENT</div>'
+    //templateUrl: 'views/people-list.html'
+    //,directives: [NgFor, NgIf]
+})
+class PeopleList {
+    private people: Array<Person>;
+    
+    constructor() {
+        console.log('LOAD PEOPLE_LIST');
+        const peopleStore = new PeopleStore();
+        this.people = peopleStore.getPeople();
+    }
+    
+    public increaseSalary(person: Person, change: string): void {
+        person.salary = person.salary + (+change);
+    }
+
+    public isMaxSalaryReached(p: Person) {
+        return p.salary > 6000;
+    }
+}*/ 
