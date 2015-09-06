@@ -11,33 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var router_1 = require('angular2/router');
-var peopleStore_1 = require('peopleStore');
-var PeopleAppComponent = (function () {
-    function PeopleAppComponent() {
-        var peopleStore = new peopleStore_1.PeopleStore();
+var people_store_1 = require('people-store');
+var PeopleList = (function () {
+    function PeopleList() {
+        var peopleStore = new people_store_1.PeopleStore();
         this.people = peopleStore.getPeople();
     }
-    PeopleAppComponent.prototype.increaseSalary = function (person, change) {
+    PeopleList.prototype.increaseSalary = function (person, change) {
         person.salary = person.salary + (+change);
     };
-    PeopleAppComponent.prototype.isMaxSalaryReached = function (p) {
+    PeopleList.prototype.isMaxSalaryReached = function (p) {
         return p.salary > 6000;
     };
-    PeopleAppComponent = __decorate([
+    PeopleList = __decorate([
         angular2_1.Component({
-            selector: 'people-app'
+            selector: 'people-list'
         }),
         angular2_1.View({
-            templateUrl: '/views/people-app.html',
+            templateUrl: 'views/people-list.html',
             directives: [angular2_1.NgFor, angular2_1.NgIf]
-        }),
-        router_1.RouteConfig([
-            { path: '/', redirectTo: '/home' },
-            { path: '/home', as: 'people', component: PeopleAppComponent }
-        ]), 
+        }), 
         __metadata('design:paramtypes', [])
-    ], PeopleAppComponent);
-    return PeopleAppComponent;
+    ], PeopleList);
+    return PeopleList;
 })();
-angular2_1.bootstrap(PeopleAppComponent);
